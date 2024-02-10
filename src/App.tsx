@@ -1,12 +1,7 @@
-import { Button } from "./components/ui/button";
+import MainLayout from "./components/layouts/MainLayout";
 
 function App() {
-  return (
-    <>
-      <h1>This is app</h1>
-      <Button variant="destructive">Click here</Button>
-    </>
-  );
+  return <MainLayout></MainLayout>;
 }
 
 export default App;
