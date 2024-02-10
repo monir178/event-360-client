@@ -28,7 +28,7 @@ const Navbar = () => {
         <p className="font-bold text-3xl">
           Event <span className="text-primary">360</span>
         </p>
-        <motion.ul className="space-x-2 font-semibold text-base">
+        <motion.ul className="space-x-3 md:space-x-6  font-semibold text-base">
           <NavLink to="/">Home</NavLink>
           <NavLink to="/about">About</NavLink>
           <NavLink to="/contact">Contact</NavLink>

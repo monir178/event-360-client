@@ -47,18 +47,73 @@ const animateText = {
     },
   },
 };
+
 const animateButton = {
   hidden: {
     opacity: 0,
-    y: 40,
+    scale: 0.96,
   },
   visible: {
-    y: 0,
+    scale: 1,
     opacity: 1,
     transition: {
       duration: 1.5,
       type: "spring",
       ease: "linear",
+      scale: {
+        repeat: Infinity,
+        duration: 1,
+        repeatType: "reverse",
+        ease: "easeInOut",
+      },
+    },
+  },
+};
+
+const animateHero = {
+  hidden: {
+    opacity: 0,
+    scale: 0.9,
+  },
+  visible: {
+    scale: 1,
+    opacity: 1,
+    transition: {
+      duration: 1,
+      type: "spring",
+      ease: "linear",
+    },
+  },
+};
+
+const transparentCards = {
+  hidden: {
+    opacity: 0,
+  },
+
+  visible: {
+    scale: 1,
+    opacity: 1,
+    transition: {
+      duration: 1,
+      staggerChildren: 0.1,
+      delayChildren: 0.19,
+    },
+  },
+};
+
+const transparentChildren = {
+  hidden: {
+    opacity: 0,
+    x: -100,
+  },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.5,
+
+      ease: "easeInOut",
     },
   },
 };
@@ -74,7 +129,7 @@ const HeroSection = () => {
       className="max-w-[1440px] w-full overflow-hidden mx-auto pb-10">
       <Navbar />
       <Container className="grid grid-cols-1 lg:grid-cols-2 place-content-center items-center ">
-        <div className="mb-16 lg:mb-0">
+        <div className="mb-16 lg:mb-0 mt-6 lg:mt-32">
           <h1 data-aos="fade-down">
             Brand New <br /> event Packages
           </h1>
@@ -102,8 +157,13 @@ const HeroSection = () => {
           </motion.div>
 
           {/* /***** Transparent Cards are here *******/}
-          <div className="flex gap-4 mt-10 w-full">
-            <div
+          <motion.div
+            variants={transparentCards}
+            initial="hidden"
+            animate="visible"
+            className="flex gap-4 mt-20 w-full">
+            <motion.div
+              variants={transparentChildren}
               style={{
                 backgroundColor: "rgba(255, 255, 255, 0.3)",
                 backdropFilter: "blur(10px)",
@@ -128,8 +188,9 @@ const HeroSection = () => {
                   decor and gourmet.
                 </p>
               </div>
-            </div>
-            <div
+            </motion.div>
+            <motion.div
+              variants={transparentChildren}
               style={{
                 backgroundColor: "rgba(255, 255, 255, 0.3)",
                 backdropFilter: "blur(10px)",
@@ -153,8 +214,9 @@ const HeroSection = () => {
                   Winter event perfection awaits. From intimate to extravagant.
                 </p>
               </div>
-            </div>
-            <div
+            </motion.div>
+            <motion.div
+              variants={transparentChildren}
               style={{
                 backgroundColor: "rgba(255, 255, 255, 0.3)",
                 backdropFilter: "blur(10px)",
@@ -179,12 +241,16 @@ const HeroSection = () => {
                   themed decor.
                 </p>
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
 
         {/* /***** Hero Image and Stars *******/}
-        <div className="flex justify-center items-center relative">
+        <motion.div
+          variants={animateHero}
+          initial="hidden"
+          animate="visible"
+          className="flex justify-center items-center relative">
           <div className="relative">
             <div className="absolute top-0 md:top-14 lg:top-16">
               <img src={star} alt="" />
@@ -198,7 +264,7 @@ const HeroSection = () => {
               alt=""
             />
           </div>
-        </div>
+        </motion.div>
       </Container>
     </div>
   );
