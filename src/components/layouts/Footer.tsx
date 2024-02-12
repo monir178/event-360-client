@@ -1,7 +1,122 @@
+import { Euro, Globe, PersonStanding } from "lucide-react";
+import Container from "../Container";
+
 const Footer = () => {
   return (
-    <div>
-      <h1>This is Footer</h1>
+    <div className="max-w-[1440px] bg-gray-700   w-full mx-auto pb-10 text-white font-thin">
+      <Container>
+        <div className="mt-12 flex justify-between py-10">
+          <div className="flex gap-8 ">
+            <p className="font-bold text-3xl">
+              Event <span className="text-primary">360</span>
+            </p>
+            <div>
+              <h5 className="font-semibold mb-2">Product</h5>
+              <ul className="list-none font-thin space-y-2">
+                <li>
+                  <small>Pricing</small>
+                </li>
+                <li>
+                  <small>Overview</small>
+                </li>
+                <li>
+                  <small>Browse</small>
+                </li>
+                <li>
+                  <small>Accessibility</small>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div>
+            <h5 className="font-semibold mb-2">Solutions</h5>
+            <ul className="list-none font-thin space-y-2">
+              <li>
+                <small>Brainstorming</small>
+              </li>
+              <li>
+                <small>Ideation</small>
+              </li>
+              <li>
+                <small>Wireframing</small>
+              </li>
+              <li>
+                <small>Research</small>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h5 className="font-semibold mb-2">Resources</h5>
+            <ul className="list-none font-thin space-y-2">
+              <li>
+                <small>HelpCenter</small>
+              </li>
+              <li>
+                <small>Blog</small>
+              </li>
+              <li>
+                <small>Tutorials</small>
+              </li>
+              <li>
+                <small>FAQs</small>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h5 className="font-semibold mb-2">Support</h5>
+            <ul className="list-none font-thin space-y-2">
+              <li>
+                <small>Contact Us</small>
+              </li>
+              <li>
+                <small>Developers</small>
+              </li>
+              <li>
+                <small>Documentation</small>
+              </li>
+              <li>
+                <small>Integrations</small>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h5 className="font-semibold mb-2">Company</h5>
+            <ul className="list-none font-thin space-y-2">
+              <li>
+                <small>About</small>
+              </li>
+              <li>
+                <small>Press</small>
+              </li>
+              <li>
+                <small>Events</small>
+              </li>
+              <li>
+                <small>Request Demo</small>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <hr className="my-4 border-gray-500" />
+
+        <div className="flex justify-between">
+          <div>
+            <small> @ 2023. All rights reserved.</small>
+          </div>
+          <div className="flex justify-between gap-6">
+            <small>Terms</small>
+            <small>Privacy</small>
+            <small>Contact</small>
+            <div className="flex gap-2">
+              <Globe /> <small>EN</small>
+            </div>
+            <div className="flex gap-2">
+              <Euro /> <small>EUR</small>
+            </div>
+            <PersonStanding />
+          </div>
+        </div>
+      </Container>
     </div>
   );
 };
