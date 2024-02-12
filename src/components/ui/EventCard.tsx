@@ -1,8 +1,4 @@
-type TEvent = {
-  _id: string;
-  name: string;
-  image: string;
-};
+import { TEvent } from "@/types/eventType";
 
 interface EventCardProps {
   event: TEvent;
@@ -20,7 +16,7 @@ const EventCard = ({ event }: EventCardProps) => {
         width: "100%",
       }}
       className="w-full border-none rounded-md p-4">
-      <img className="rounded-md w-full" src={event.image} />
+      <img className="rounded-md w-full" src={event.imageUrl} />
       <h3 className="mt-4">{event.name}</h3>
     </div>
   );

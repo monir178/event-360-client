@@ -2,6 +2,7 @@ import Container from "@/components/Container";
 import { useGetServices } from "@/api/service.hook";
 import ServiceCard from "@/components/ui/ServiceCard";
 import { Skeleton } from "@/components/ui/skeleton";
+import { TService } from "@/types/eventType";
 
 const ApplyBackgroundGradient = () => {
   const hsl1 = "288, 95%, 93%";
@@ -43,8 +44,8 @@ const ServiceSection = () => {
           events, exclusively at Event 360.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center gap-4 justify-between mt-16">
-          {services?.map((service) => (
-            <ServiceCard service={service} key={service.id} />
+          {services?.map((service: TService) => (
+            <ServiceCard service={service as TService} key={service._id} />
           ))}
         </div>
       </Container>

@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query"
 import { getEvents } from "./event.api";
+import { TEvent } from '../types/eventType';
 
 
 export const useGetEvents = () => {
@@ -7,11 +8,10 @@ export const useGetEvents = () => {
         queryKey: ["events"],
         queryFn: getEvents,
         select: (data) => {
-            const events = data?.data?.data?.map(event => ({
+            const events = data?.data?.data?.map((event: TEvent) => ({
                 id: event._id,
                 name: event.name,
-                image: event.imageUrl,
-
+                imageUrl: event.imageUrl,
             }));
             return events;
         }
