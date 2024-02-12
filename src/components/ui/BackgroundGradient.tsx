@@ -5,7 +5,7 @@ import PricingSection from "@/pages/Home/PricingSection";
 const ApplyBackgroundGradient = () => {
   const hsl1 = "288, 95%, 93%";
   const hsl2 = "0, 0%, 100%";
-  const hsl3 = "176, 80%, 90%";
+  const hsl3 = "208, 57%, 91%";
 
   return {
     background: `linear-gradient(to bottom right, hsl(${hsl1}) 0%, hsl(${hsl2}) 50%, hsl(${hsl3}) 100%)`,
