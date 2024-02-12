@@ -183,7 +183,7 @@ const HeroSection = () => {
                     padding: "10px",
                   }}
                 />
-                <p className="text-xs font-light overflow-hidden whitespace-nowrap">
+                <p className="text-xs font-light overflow-hidden text-textcolor whitespace-nowrap">
                   Elevate your events with our winter packages. Enjoy themed
                   decor and gourmet.
                 </p>
@@ -210,7 +210,7 @@ const HeroSection = () => {
                     padding: "10px",
                   }}
                 />
-                <p className="text-xs font-light overflow-hidden whitespace-nowrap">
+                <p className="text-xs font-light overflow-hidden whitespace-nowrap text-textcolor">
                   Winter event perfection awaits. From intimate to extravagant.
                 </p>
               </div>
@@ -236,7 +236,7 @@ const HeroSection = () => {
                     padding: "10px",
                   }}
                 />
-                <p className="text-xs font-light overflow-hidden whitespace-nowrap">
+                <p className="text-xs text-textcolor font-light overflow-hidden whitespace-nowrap">
                   Discover winter event magic. From cozy to grand, indulge in
                   themed decor.
                 </p>

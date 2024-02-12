@@ -70,13 +70,20 @@
   * {
     @apply border-border;
   }
+  html {
+    font-family: "Roboto", sans-serif;
+  }
   body {
     @apply bg-background text-foreground;
   }
   h1 {
     @apply font-extrabold text-6xl;
   }
-  html {
-    font-family: "Roboto", sans-serif;
+
+  h2 {
+    @apply font-extrabold text-[32px];
+  }
+  h3 {
+    @apply font-bold text-[24px];
   }
 }

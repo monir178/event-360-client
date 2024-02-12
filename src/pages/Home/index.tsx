@@ -1,11 +1,9 @@
+import BackgroundGradient from "@/components/ui/BackgroundGradient";
 import AboutUsSection from "./AboutUsSection";
 import ClientSection from "./ClientSection";
-import EventSection from "./EventSection";
-import GallerySection from "./GallerySection";
-import HeroSection from "./HeroSection";
-import PricingSection from "./PricingSection";
 import RecentEventSection from "./RecentEventSection";
 import ServiceSection from "./ServiceSection";
+import HeroSection from "./HeroSection";
 
 const Home = () => {
   return (
@@ -13,9 +11,7 @@ const Home = () => {
       <HeroSection />
       <ClientSection />
       <ServiceSection />
-      <EventSection />
-      <PricingSection />
-      <GallerySection />
+      <BackgroundGradient />
       <AboutUsSection />
       <RecentEventSection />
     </div>
