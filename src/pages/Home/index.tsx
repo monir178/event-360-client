@@ -1,9 +1,10 @@
 import BackgroundGradient from "@/components/ui/BackgroundGradient";
-import AboutUsSection from "./AboutUsSection";
+
 import ClientSection from "./ClientSection";
 import RecentEventSection from "./RecentEventSection";
 import ServiceSection from "./ServiceSection";
 import HeroSection from "./HeroSection";
+import ClientTalkSection from "./ClientTalkSection";
 
 const Home = () => {
   return (
@@ -12,7 +13,7 @@ const Home = () => {
       <ClientSection />
       <ServiceSection />
       <BackgroundGradient />
-      <AboutUsSection />
+      <ClientTalkSection />
       <RecentEventSection />
     </div>
   );

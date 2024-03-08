@@ -3,32 +3,34 @@ import Container from "../Container";
 
 const Footer = () => {
   return (
-    <div className="max-w-[1440px] bg-gray-700   w-full mx-auto pb-10 text-white font-thin">
+    <div className="max-w-[1440px]  bg-gray-700 w-full mx-auto pb-10 text-white font-thin">
       <Container>
-        <div className="mt-12 flex justify-between py-10">
-          <div className="flex gap-8 ">
-            <p className="font-bold text-3xl">
-              Event <span className="text-primary">360</span>
-            </p>
-            <div>
-              <h5 className="font-semibold mb-2">Product</h5>
-              <ul className="list-none font-thin space-y-2">
-                <li>
-                  <small>Pricing</small>
-                </li>
-                <li>
-                  <small>Overview</small>
-                </li>
-                <li>
-                  <small>Browse</small>
-                </li>
-                <li>
-                  <small>Accessibility</small>
-                </li>
-              </ul>
+        <div className="mt-12 grid grid-cols-2 md:grid-cols-3 justify-self-end lg:grid-cols-5 py-10 gap-y-16">
+          <div>
+            <div className="flex justify-between">
+              <p className="font-bold text-3xl">
+                Event <span className="text-primary">360</span>
+              </p>
+              <div>
+                <h5 className="font-semibold mb-2">Product</h5>
+                <ul className="list-none font-thin space-y-2">
+                  <li>
+                    <small>Pricing</small>
+                  </li>
+                  <li>
+                    <small>Overview</small>
+                  </li>
+                  <li>
+                    <small>Browse</small>
+                  </li>
+                  <li>
+                    <small>Accessibility</small>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
-          <div>
+          <div className=" justify-self-center">
             <h5 className="font-semibold mb-2">Solutions</h5>
             <ul className="list-none font-thin space-y-2">
               <li>
@@ -45,7 +47,7 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-          <div>
+          <div className=" justify-self-center">
             <h5 className="font-semibold mb-2">Resources</h5>
             <ul className="list-none font-thin space-y-2">
               <li>
@@ -62,7 +64,7 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-          <div>
+          <div className=" justify-self-center">
             <h5 className="font-semibold mb-2">Support</h5>
             <ul className="list-none font-thin space-y-2">
               <li>
@@ -79,7 +81,7 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-          <div>
+          <div className=" justify-self-center">
             <h5 className="font-semibold mb-2">Company</h5>
             <ul className="list-none font-thin space-y-2">
               <li>
@@ -99,11 +101,11 @@ const Footer = () => {
         </div>
         <hr className="my-4 border-gray-500" />
 
-        <div className="flex justify-between">
-          <div>
+        <div className="flex flex-col-reverse md:flex-row justify-between">
+          <div className="md:text-right mb-4 md:mb-0">
             <small> @ 2023. All rights reserved.</small>
           </div>
-          <div className="flex justify-between gap-6">
+          <div className="flex flex-wrap justify-between gap-6">
             <small>Terms</small>
             <small>Privacy</small>
             <small>Contact</small>

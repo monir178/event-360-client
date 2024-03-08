@@ -24,7 +24,7 @@ const EventSection = () => {
 
   return (
     <Container>
-      <h1 className="text-center my-4">Event Items </h1>
+      <h1 className="text-center my-4 mt-8">Event Items </h1>
       <p className="text-textcolor text-center">
         Explore our comprehensive range of services tailored to elevate your
         events, exclusively at Event 360.
