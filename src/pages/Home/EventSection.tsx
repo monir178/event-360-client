@@ -22,6 +22,14 @@ const EventSection = () => {
     return <p className="text-center text-xl font-bold">Something is wrong</p>;
   }
 
+  if (!events) {
+    return (
+      <p className="text-center text-xl font-bold">
+        Please Check your Internet Connection
+      </p>
+    );
+  }
+
   return (
     <Container>
       <h1 className="text-center my-4 mt-8">Event Items </h1>
@@ -32,7 +40,7 @@ const EventSection = () => {
       <div className="grid gap-4 lg:grid-cols-12 mt-16">
         <div className="col-span-4 lg:col-span-4 md:col-span-6 sm:col-span-4">
           <div>
-            <EventCard event={events[0] as TEvent} />
+            <EventCard key={events[0]._id} event={events[0] as TEvent} />
           </div>
           <div className="flex flex-row gap-4 mt-4 ">
             {events.slice(1, 3).map((event: TEvent) => (

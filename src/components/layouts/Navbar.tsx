@@ -30,6 +30,7 @@ const Navbar = () => {
         </p>
         <motion.ul className="space-x-3 md:space-x-6  font-semibold text-base">
           <NavLink to="/">Home</NavLink>
+          <NavLink to="/admin">Dashboard</NavLink>
           <NavLink to="/about">About</NavLink>
           <NavLink to="/contact">Contact</NavLink>
         </motion.ul>

@@ -11,9 +11,9 @@ import { clientData } from "@/lib/clientData";
 const ClientTalkSection = () => {
   return (
     <Container className="my-24 max-w-[1440px]">
-      <h1 className="mb-24 ms-0 lg:ms-[80px]">What Our Client Said About Us</h1>
+      <h1 className="mb-24 ms-0 xl:ms-[80px]">What Our Client Said About Us</h1>
       <Carousel className="w-full">
-        <CarouselContent className="p-4 ms-0 lg:ms-[80px] flex gap-10">
+        <CarouselContent className="p-4 ms-0 xl:ms-[80px] flex gap-10">
           {clientData.map((client, index) => (
             <CarouselItem
               style={{

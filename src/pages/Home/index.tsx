@@ -6,6 +6,8 @@ import ServiceSection from "./ServiceSection";
 import HeroSection from "./HeroSection";
 import ClientTalkSection from "./ClientTalkSection";
 
+import DetailsContainer from "./DetailsContainer";
+
 const Home = () => {
   return (
     <div>
@@ -15,6 +17,7 @@ const Home = () => {
       <BackgroundGradient />
       <ClientTalkSection />
       <RecentEventSection />
+      <DetailsContainer />
     </div>
   );
 };

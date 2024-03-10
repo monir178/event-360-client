@@ -1,9 +1,30 @@
 import { Check, Layers, MoveRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
+
+const cardAnimate = {
+  initial: {
+    boxShadow: "0px 15px 12px rgba(0, 120, 255)",
+  },
+  animate: {
+    ease: "easeInOut",
+    boxShadow: "0px 15px 12px rgba(0,0,0,0)",
+    transition: {
+      duration: 0.7,
+      repeat: Infinity,
+      repeatType: "reverse",
+      ease: "easeInOut",
+    },
+  },
+};
 
 const Price2 = () => {
   return (
-    <div className="p-4 relative shadow-md border-t-4 border-blue-500 bg-white rounded-2xl mt-5 md:mt-0 lg:mt-0">
+    <motion.div
+      variants={cardAnimate}
+      initial="initial"
+      animate="animate"
+      className="p-4 relative shadow-md border-t-4 border-blue-500 bg-white rounded-2xl mt-5 md:mt-0 lg:mt-0">
       <div className="my-4 flex justify-between items-center ">
         <Layers
           size={45}
@@ -15,12 +36,14 @@ const Price2 = () => {
       <p className="text-textcolor">
         Upgrade your social portfopo with a stunning profile & enhanced shots.
       </p>
-      <Button className="my-4 mb-8 rounded-lg">
-        Get This Package
-        <span className="ms-2">
-          <MoveRight />
-        </span>
-      </Button>
+      <div>
+        <Button className="my-4 mb-8 rounded-lg">
+          Get This Package
+          <span className="ms-2">
+            <MoveRight />
+          </span>
+        </Button>
+      </div>
       <hr />
       <div className="space-y-2 mt-8">
         <div className="flex flex-row gap-2  items-center ">
@@ -93,7 +116,7 @@ const Price2 = () => {
       <div className="absolute top-[-32px] text-sm left-1/2 transform -translate-x-1/2 bg-blue-500 text-white py-1 px-4 rounded-t-xl uppercase">
         Recommended
       </div>
-    </div>
+    </motion.div>
   );
 };
 
