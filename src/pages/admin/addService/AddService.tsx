@@ -1,8 +1,9 @@
 import Container from "@/components/Container";
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 
 interface Service {
   serviceName: string;
@@ -16,9 +17,16 @@ const AddService: React.FC = () => {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm<Service>();
 
-  const { mutateAsync, isError, isSuccess } = useMutation({
+  const queryClient = useQueryClient();
+
+  const { mutateAsync, isError, isSuccess } = useMutation<
+    Service,
+    Error,
+    Service
+  >({
     mutationFn: async (data) => {
       try {
         const response = await axios.post(
@@ -37,11 +45,17 @@ const AddService: React.FC = () => {
         throw error;
       }
     },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["services"] });
+    },
   });
 
-  if (isSuccess) {
-    alert("Service added successfully");
-  }
+  useEffect(() => {
+    if (isSuccess) {
+      toast.success("Service added successfully");
+      reset();
+    }
+  }, [isSuccess, reset]);
 
   const handleAddFeature = () => {
     setFeatures([...features, ""]);
@@ -61,7 +75,6 @@ const AddService: React.FC = () => {
 
   const onSubmit = async (data: Service) => {
     try {
-      // Filter out empty features
       data.features = features.filter((feature) => feature.trim() !== "");
       await mutateAsync(data);
       setFeatures([]);

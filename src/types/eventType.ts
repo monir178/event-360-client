@@ -6,7 +6,7 @@ export type TEvent = {
 
 export type TService = {
     _id: string;
-    name: string;
-    image: string;
+    serviceName: string;
+    imageUrl: string;
     features: string[];
 };

@@ -1,19 +1,19 @@
 import { Check, Layers, MoveRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { motion } from "framer-motion";
+import { Variants, motion } from "framer-motion";
 
 const cardAnimate = {
-  initial: {
+  hidden: {
     boxShadow: "0px 15px 12px rgba(0, 120, 255)",
   },
   animate: {
-    ease: "easeInOut",
     boxShadow: "0px 15px 12px rgba(0,0,0,0)",
+
     transition: {
+      ease: "easeInOut",
       duration: 0.7,
       repeat: Infinity,
       repeatType: "reverse",
-      ease: "easeInOut",
     },
   },
 };
@@ -21,8 +21,8 @@ const cardAnimate = {
 const Price2 = () => {
   return (
     <motion.div
-      variants={cardAnimate}
-      initial="initial"
+      variants={cardAnimate as Variants}
+      initial="hidden"
       animate="animate"
       className="p-4 relative shadow-md border-t-4 border-blue-500 bg-white rounded-2xl mt-5 md:mt-0 lg:mt-0">
       <div className="my-4 flex justify-between items-center ">

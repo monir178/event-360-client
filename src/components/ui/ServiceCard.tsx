@@ -1,12 +1,6 @@
 import { Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
-
-type TService = {
-  _id: string;
-  name: string;
-  image: string;
-  features: string[];
-};
+import { TService } from "@/types/eventType";
 
 interface ServiceCardProps {
   service: TService;
@@ -27,11 +21,11 @@ const ServiceCard = ({ service }: ServiceCardProps) => {
         width: "100%",
       }}
       className="w-full border-none rounded-md p-4">
-      <img className="rounded-md h-60 w-96" src={service.image} />
+      <img className="rounded-md h-60 w-96" src={service.imageUrl} />
       <div
         className="card-body"
         style={{ flex: "1 1 auto", display: "flex", flexDirection: "column" }}>
-        <h3 className="card-title my-3">{service.name}</h3>
+        <h3 className="card-title my-3">{service.serviceName}</h3>
 
         <div
           className="flex flex-col gap-2 mb-4"

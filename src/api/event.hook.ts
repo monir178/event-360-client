@@ -9,7 +9,7 @@ export const useGetEvents = () => {
         queryFn: getEvents,
         select: (data) => {
             const events = data?.data?.data?.map((event: TEvent) => ({
-                id: event._id,
+                _id: event._id,
                 name: event.name,
                 imageUrl: event.imageUrl,
             }));

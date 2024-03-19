@@ -45,7 +45,7 @@ const ServiceSection = () => {
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center gap-4 justify-between mt-16">
           {services?.map((service: TService) => (
-            <ServiceCard service={service as TService} key={service._id} />
+            <ServiceCard key={service._id} service={service as TService} />
           ))}
         </div>
       </Container>
