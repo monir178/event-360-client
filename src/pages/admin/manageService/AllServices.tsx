@@ -1,11 +1,15 @@
 import { useGetServices } from "@/api/service.hook";
+
 import ServiceCard from "@/components/ui/ServiceCard";
 import { Skeleton } from "@/components/ui/skeleton";
+import { useFadeIn } from "@/hooks/useFadeIn";
 import { TService } from "@/types/eventType";
+import { motion } from "framer-motion";
 
 const AllServices = () => {
   const { data: services, isLoading, isError } = useGetServices();
   // console.log(services);
+  const variants = useFadeIn();
 
   if (isLoading) {
     return (
@@ -23,14 +27,14 @@ const AllServices = () => {
   }
 
   return (
-    <div>
+    <motion.div variants={variants} initial="hidden" animate="visible">
       <h1 className="text-center">All Services</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:mx-4 items-center gap-4 justify-between mt-16">
         {services?.map((service: TService) => (
           <ServiceCard service={service as TService} key={service._id} />
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 };
 

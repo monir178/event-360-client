@@ -20,7 +20,10 @@ const RecentEventSection = () => {
     isError,
   } = useQuery({
     queryKey: ["recents"],
-    queryFn: () => axios.get("http://localhost:5000/api/v1/recents"),
+    queryFn: () =>
+      axios.get(
+        "https://frontend-assignment-5-server.vercel.app/api/v1/recents"
+      ),
   });
   const recentEventsData = recentEvents?.data?.data;
 

@@ -8,13 +8,13 @@ const AdminLayout = () => {
       <div className="bg-white">
         <Navbar />
       </div>
-      <div className="drawer lg:drawer-open">
+      <div className="drawer lg:drawer-open lg:gap-8">
         <input
           id="dashboard-drawer"
           type="checkbox"
           className="drawer-toggle"
         />
-        <div className="drawer-content flex flex-col">
+        <div className="drawer-content ">
           <Outlet />
         </div>
         <div className="drawer-side">

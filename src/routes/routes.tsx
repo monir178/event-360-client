@@ -1,11 +1,13 @@
 import App from "@/App";
 import AdminLayout from "@/components/layouts/AdminLayout";
 import Home from "@/pages/Home";
+import About from "@/pages/aboutUs/About";
 
 import AddService from "@/pages/admin/addService/AddService";
 import AllServices from "@/pages/admin/manageService/AllServices";
 import EditService from "@/pages/admin/manageService/EditService";
-import { createBrowserRouter } from "react-router-dom";
+import Contact from "@/pages/contact/Contact";
+import { Navigate, createBrowserRouter } from "react-router-dom";
 
 const router = createBrowserRouter([
   {
@@ -16,12 +18,24 @@ const router = createBrowserRouter([
         index: true,
         element: <Home />,
       },
+      {
+        path: "/about",
+        element: <About />,
+      },
+      {
+        path: "/contact",
+        element: <Contact />,
+      },
     ],
   },
   {
     path: "admin",
     element: <AdminLayout />,
     children: [
+      {
+        index: true,
+        element: <Navigate to="/admin/all-services" />,
+      },
       {
         path: "/admin/add-service",
         element: <AddService />,

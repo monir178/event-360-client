@@ -1,38 +1,24 @@
+import React, { useState } from "react";
 import { useGetServices } from "@/api/service.hook";
-
 import { Skeleton } from "@/components/ui/skeleton";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
-import axios from "axios";
-import toast from "react-hot-toast";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+import UpdateService from "./UpdateService";
+import DeleteButton from "./DeleteService";
+import { TService } from "@/types/eventType";
+import { motion } from "framer-motion";
+import { useFadeIn } from "@/hooks/useFadeIn";
 
 const EditService = () => {
   const { data: services, isLoading, isError, refetch } = useGetServices();
-  console.log(services);
-  const queryClient = useQueryClient();
+  const [open, setOpen] = useState(false);
+  const [selectedService, setSelectedService] = useState<TService | null>(null);
 
-  const { mutateAsync: deleteService } = useMutation({
-    mutationFn: async (serviceId) => {
-      return await axios.delete(
-        `http://localhost:5000/api/v1/services/${serviceId}`
-      );
-    },
-    onSuccess: () => {
-      queryClient.invalidateQueries({
-        queryKey: ["services"],
-      });
-    },
-  });
-
-  // Function to handle service deletion
-  const handleDeleteService = async (serviceId) => {
-    try {
-      await deleteService(serviceId);
-      toast.success("Service deleted Successfully");
-      refetch();
-    } catch (error) {
-      console.error("Error deleting service:", error);
-    }
-  };
+  const variants = useFadeIn();
 
   if (isLoading) {
     return (
@@ -50,7 +36,7 @@ const EditService = () => {
   }
 
   return (
-    <div>
+    <motion.div variants={variants} initial="hidden" animate="visible">
       <h1>Edit Service</h1>
       <div>
         <div className="overflow-x-auto">
@@ -60,19 +46,18 @@ const EditService = () => {
               <tr>
                 <th></th>
                 <th>Name</th>
-                <th>Features</th>
                 <th>Action</th>
               </tr>
             </thead>
             <tbody>
               {/* row 1 */}
-              {services.map((service, index) => (
+              {services.map((service: TService, index: number) => (
                 <tr key={service._id}>
                   <th>
                     <label>{index + 1}</label>
                   </th>
                   <td>
-                    <div className="flex  gap-3 flex-col">
+                    <div className="flex  gap-3 items-center">
                       <div className="avatar">
                         <div className="mask mask-squircle w-12 h-12">
                           <img
@@ -86,27 +71,17 @@ const EditService = () => {
                       </div>
                     </div>
                   </td>
-                  <td>
-                    {service.features.map((feature, index) => (
-                      <p key={index} className="flex gap-1">
-                        <span className="text-blue-600 font-semibold">
-                          {index + 1}.
-                        </span>
-                        {feature}
-                      </p>
-                    ))}
-                  </td>
+
                   <td className="flex flex-col gap-2">
-                    <button className="bg-primary hover:bg-blue-700 text-white rounded-lg px-2 py-1 uppercase">
-                      Update
-                    </button>
                     <button
                       onClick={() => {
-                        handleDeleteService(service._id);
+                        setOpen(true);
+                        setSelectedService(service);
                       }}
-                      className="bg-destructive hover:bg-red-700 text-white rounded-lg  py-1 px-2 uppercase">
-                      Delete
+                      className="bg-primary w-20 hover:bg-blue-700 text-white rounded-lg px-2 py-1 uppercase">
+                      Update
                     </button>
+                    <DeleteButton serviceId={service._id} refetch={refetch} />
                   </td>
                 </tr>
               ))}
@@ -114,7 +89,21 @@ const EditService = () => {
           </table>
         </div>
       </div>
-    </div>
+      <Dialog open={open} onOpenChange={setOpen}>
+        <DialogContent className="sm:max-w-[425px]">
+          <DialogHeader>
+            <DialogTitle>Edit Service</DialogTitle>
+          </DialogHeader>
+          {selectedService && (
+            <UpdateService
+              service={selectedService}
+              refetch={refetch}
+              closeDialogue={() => setOpen(false)}
+            />
+          )}
+        </DialogContent>
+      </Dialog>
+    </motion.div>
   );
 };
 

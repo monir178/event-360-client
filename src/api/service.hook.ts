@@ -9,7 +9,8 @@ export const useGetServices = () => {
         queryFn: getServices,
 
         refetchInterval: 3000,
-        staleTime: 10000,
+
+        staleTime: 5000,
 
         select: (data) => {
             const services = data?.data?.data?.map((service: TService) => ({

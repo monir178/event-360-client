@@ -1,8 +1,13 @@
 import Container from "@/components/Container";
-import { useGetServices } from "@/api/service.hook";
+
 import ServiceCard from "@/components/ui/ServiceCard";
 import { Skeleton } from "@/components/ui/skeleton";
 import { TService } from "@/types/eventType";
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
+interface LimitedServicesResponse {
+  data: TService[]; // Assuming data is an array of TService objects
+}
 
 const ApplyBackgroundGradient = () => {
   const hsl1 = "288, 95%, 93%";
@@ -15,7 +20,17 @@ const ApplyBackgroundGradient = () => {
 };
 
 const ServiceSection = () => {
-  const { data: services, isLoading, isError } = useGetServices();
+  const {
+    data: limitedServices,
+    isLoading,
+    isError,
+  } = useQuery({
+    queryKey: ["services"],
+    queryFn: () =>
+      axios.get<LimitedServicesResponse>(
+        "https://frontend-assignment-5-server.vercel.app/api/v1/limit-services"
+      ),
+  });
 
   // console.log(services);
   if (isLoading) {
@@ -32,6 +47,9 @@ const ServiceSection = () => {
   if (isError) {
     return <p>Something is missing</p>;
   }
+
+  const services = limitedServices?.data.data;
+  console.log(services);
 
   return (
     <div
