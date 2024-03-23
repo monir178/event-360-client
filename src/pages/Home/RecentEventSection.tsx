@@ -2,6 +2,7 @@ import Container from "@/components/Container";
 
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
+import { TRecentEvent } from "@/types/eventType";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 
@@ -48,7 +49,7 @@ const RecentEventSection = () => {
         <div
           style={ApplyBackgroundGradient()}
           className="grid p-10 rounded-3xl  grid-cols-3 gap-4">
-          {recentEventsData.map((event) => (
+          {recentEventsData.map((event: TRecentEvent) => (
             <img key={event._id} className="" src={event.img} alt="" />
           ))}
         </div>

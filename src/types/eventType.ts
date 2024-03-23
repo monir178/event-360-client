@@ -1,3 +1,9 @@
+export type TRecentEvent = {
+    _id: string;
+    name: string;
+    img: string;
+};
+
 export type TEvent = {
     _id: string;
     name: string;

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useGetServices } from "@/api/service.hook";
 import { Skeleton } from "@/components/ui/skeleton";
 import {
@@ -37,7 +37,7 @@ const EditService = () => {
 
   return (
     <motion.div variants={variants} initial="hidden" animate="visible">
-      <h1>Edit Service</h1>
+      <h1 className="text-center mb-4">Edit Service</h1>
       <div>
         <div className="overflow-x-auto">
           <table className="table">

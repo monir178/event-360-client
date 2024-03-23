@@ -70,13 +70,11 @@ const UpdateService = ({
   };
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault(); // Prevent form submission
+    e.preventDefault();
     try {
       updatedService.features = features.filter(
         (feature) => feature.trim() !== ""
       );
-
-      console.log("Payload Data:", updatedService); // Log the payload data
 
       await mutateAsync(updatedService);
     } catch (error) {
