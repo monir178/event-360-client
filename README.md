@@ -1,30 +1,93 @@
-# React + TypeScript + Vite
+# Event360
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Discover our new winter event packages, meticulously crafted to elevate your gatherings. From cozy soirées to grand celebrations, delight in themed decor, gourmet delights, and bespoke touches that will make your event truly magical.
 
-Currently, two official plugins are available:
+## Table of Contents
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Deployment](#deployment)
+- [Contributing](#contributing)
+- [License](#license)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
+- Themed decor and gourmet delights for events
+- Bespoke touches to make events truly magical
+- User-friendly interface for event planning
+- Real-time updates and notifications
+- Secure user authentication and data management
 
-## Expanding the ESLint configuration
+## Tech Stack
+- **Frontend:** Vite, React, TypeScript, Framer Motion
+- **Backend:** Express.js, MongoDB
+- **Authentication and Database:** Firebase
+- **Deployment:** Vercel
+- **Package Manager:** pnpm
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Installation
+To get started with the Event360 project, follow these steps:
 
-- Configure the top-level `parserOptions` property like this:
+1. **Clone the repository:**
+    ```bash
+    git clone https://github.com/your-username/event360.git
+    cd event360
+    ```
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+2. **Install dependencies using pnpm:**
+    ```bash
+    pnpm install
+    ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+3. **Set up environment variables:**
+    Create a `.env` file in the root of the project and add the necessary environment variables. Refer to `.env.example` for the required variables.
+
+4. **Start the development server:**
+    ```bash
+    pnpm dev
+    ```
+
+## Usage
+Once the development server is running, you can access the application at `http://localhost:3000`. You can now explore the features of Event360 and start planning your magical winter events.
+
+## Deployment
+The application is deployed on Vercel. To deploy your own version, follow these steps:
+
+1. **Install Vercel CLI:**
+    ```bash
+    npm install -g vercel
+    ```
+
+2. **Login to Vercel:**
+    ```bash
+    vercel login
+    ```
+
+3. **Deploy the application:**
+    ```bash
+    vercel --prod
+    ```
+
+## Contributing
+We welcome contributions to enhance the Event360 project. To contribute, follow these steps:
+
+1. **Fork the repository.**
+2. **Create a new branch:**
+    ```bash
+    git checkout -b feature/your-feature-name
+    ```
+
+3. **Make your changes and commit them:**
+    ```bash
+    git commit -m 'Add some feature'
+    ```
+
+4. **Push to the branch:**
+    ```bash
+    git push origin feature/your-feature-name
+    ```
+
+5. **Create a pull request.**
+
+## License
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
